@@ -1,10 +1,19 @@
+sudo: false
 language: node_js
 node_js:
-- '5.7'
+- '5.11'
 cache:
   directories:
   - node_modules
-after_success: npm run coverage
+before_script:
+- npm prune
+after_success:
+- npm run coverage
+- npm run semantic-release
+branches:
+  except:
+  - /^v\d+\.\d+\.\d+$/
 notifications:
+  email: false
   slack:
-    secure: uyZdWfqD30NXiWOU9yd7wJf412vtBJLBNsQE1e1i0f/8gRolqPdq4hC3EiGbDA9O0mFmRzhhGHF2fYyi91CprkcZR6FCX9S3q7ccp0PD8Q91SfxMcsGzJ0ayb4lHoYCWsM/mwdhAH1Q+fUKzjNaoXC1yX1ngdemk0drDd3QuBd+irFXbAVsGn7yhbEkTeJ5foNcvp3AL7zXZX2b+Jx/VvvapLdQwluyOG+N2bV8UwKHnIGRhCTR75J8GQ3q7xkiOe5sV4O2NN9MDrXhg1lHGDkTtd14XW3iXcX3acxne41fHxFg+jTM6b9A0uRXUSTIGShSt3EyFnURyr3SfGLbIw2BmSyZSd//qdbqg4A6J2P5i4SSFBmAlBdROfisLF4qzHt5tg+9aRoIzd/SrZ9SV+p9b/iaAP+IqdwDxZNGBA5GvoCVN1ua6CM4NiOyN+F9W/LV+K6vOZ+Oz7MifGXopKkG/bMmAXII67CHOU2Xll04kpqt6bcQX4b/fykvSViPGH0jbmJ0ay8jWHD86blLYJ7GwwxUyVwgvXpET5V/UtemosGEMumheZ70/379ALKuQqlrxVsuDnF4pYZBs7qLDfV+dP14LMyYDljpuotQCwgmhuRY3yM0maZFdPvKOUHlnCAn4Spm5MApClujhxGLzmcuV9dnkCuXtkDvUI08tAcU=
+    secure: yTMPsWjs47QWy62l5qQ+qKWclv5yyMNZaKaUlakiTPttRfYdR9RA0XpHWkO+nMN6caFUjIlatdnIInvYvUYQbRDOKOp0Xg0Ca9n9pfP2Amf7KlHUFw1bWvLHZ0mlUDNiA11jyuHhoYP+Vl2YYQ46qheKj+sB++6W9j0+Kwn08uUVbFx59f2KcR8c1LLytZxqTsBmIGsRJCp+/eg1f0p2F2eRELvakz1Q5ynWqME1FiFA0U+8QR6WYgEzXc6FZqogaTpVfsnmPjBF69r2kZTghtHWENCf4fF64G2ezsF82HoPcb418mr9wH4993zO1WLc1kSpj3kNAq/OJRk8Q3pKiWb70fR/F2VaPxSxouwnv6dO8TYhtESMP8z4fa93a9Fz5pLzQUr09sTf7xIILDgdn6BZ3XOPDDRs4ySnUew8C0+x2zN81AdpvCZ4I7qO7iRBnuH94Ignt5/RiSK6W/AUE60ToP8MJJM2+NVyupTZ2qoEdU7gHPj1K/RvA+1TChvvtm+C0MpKcpKFAcJxbDhkvUiIJu5KlGknbtNq9S+vfhilgSP+5QEOCc1C6OBM12Xqyj9yq8/L/pHKxd/sboThCQNORUslQx5iFq5Bg1cU9udVHDAgzww0RIjH/IsXwisOB9BESmXL1plIZNNxE9CPN5iJBN7aNFFGfMK06elnfIc=
