@@ -27,9 +27,6 @@ module.exports = {
       type: 'textarea',
       label: 'Add your text',
       placeholder: 'Type something...',
-      settings: {
-        empty: false,
-      },
     },
   },
   html: '<label for="{{textarea.id}}">{{textarea.label}}</label><textarea id="{{textarea.id}}" name="{{textarea.name}}" placeholder="{{textarea.placeholder}}" />{{textarea.value}}</textarea>',
